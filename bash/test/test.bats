@@ -18,7 +18,7 @@ setup() {
   assert_exists ./bash/src/project.sh
 }
 
-@test "fil project.sh can be run successfully" {
+@test "file project.sh can be run successfully" {
     # As we added src/ to $PATH, we can omit the relative path to `src/project.sh`
     run project.sh
     assert_output 'Success!!!'
