@@ -2,7 +2,7 @@ name: Test bash scripts
 on:
   push:
     paths:
-      - '/bash/**'
+      - 'bash/**'
 jobs:
   run-bats-tests:
     runs-on: ubuntu-latest
