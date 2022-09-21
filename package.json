@@ -1,7 +1,8 @@
 {
     "name": "pl-infra",
     "devDependencies": {
-        "@types/node": "^18"
+        "@types/node": "^18",
+        "bats": "^1.8.0"
     },
     "dependencies": {
         "@pulumi/pulumi": "^3.40.1"
