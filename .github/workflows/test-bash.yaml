@@ -1,5 +1,6 @@
 name: Test bash scripts
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'bash/**'
