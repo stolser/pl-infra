@@ -13,7 +13,11 @@ into the project and save it in the package.json:
     ```
     npm install --save-dev bats
     ```
-2. Install Bats helper functions with `git submodule add`:
+2. Install Bats modules (from .gitmodules):
+   ```
+   git submodule update --init --recursive
+   ```
+3. [Optional] Install Bats modules manually or add more with `git submodule add`:
    ```
    git submodule add https://github.com/bats-core/bats-support.git bash/test/bats_helper/bats-support
    ```
