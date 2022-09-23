@@ -1,0 +1,12 @@
+name: 'Print links in provide file'
+description: 'Prints all existing links in provided file'
+inputs:
+  file-path:
+    description: 'A path to the file from the repo root'
+    required: true
+outputs:
+  number:
+    description: 'Number of found links'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

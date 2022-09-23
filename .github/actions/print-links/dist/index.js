@@ -9670,11 +9670,12 @@ const github = __nccwpck_require__(4330)
 const fs = __nccwpck_require__(7147);
 
 try {
-    // get input param `title` defined in action.yaml
-    const title = core.getInput('title');
-    console.log(title);
+    // get input param `file-path` defined in action.yaml
+    let pathToFile = core.getInput('file-path');
+    const allContents = fs.readFileSync(pathToFile, 'utf-8');
 
-    const allContents = fs.readFileSync('./README.md', 'utf-8');
+    console.log(`=== Links found in file '${pathToFile}' ===`);
+
     let numberOfLinks = 0;
     let currentLineNumber = 1;
     allContents.split(/\r?\n/).forEach((line) => {
@@ -9684,7 +9685,7 @@ try {
         }
         currentLineNumber++;
     });
-    console.log('Total number of links in the root README.md: ', numberOfLinks);
+    console.log(`Total number of links in '${pathToFile}': `, numberOfLinks);
 
     core.setOutput("number", numberOfLinks);
 
