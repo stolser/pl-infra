@@ -13,15 +13,15 @@ jobs:
 
       - name: Print links from './README.md' file
         id: print-links-root-readme
-        uses: ./.github/actions/print-readme-links
+        uses: ./.github/actions/print-links
         with:
           file-path: './README.md'
 
       - name: Print the number of found links in './README.md'
         run: echo "Number of found links = ${{ steps.print-links-root-readme.outputs.number }}"
 
-      - name: Print links from '.github/actions/print-readme-links/README.md' file
+      - name: Print links from '.github/actions/print-links/README.md' file
         id: print-links-action-readme
-        uses: ./.github/actions/print-readme-links
+        uses: ./.github/actions/print-links
         with:
-          file-path: '.github/actions/print-readme-links/README.md'
+          file-path: '.github/actions/print-links/README.md'
