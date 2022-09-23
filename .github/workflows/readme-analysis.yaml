@@ -1,0 +1,27 @@
+name: Run analysis of README files in the repo
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '**/README.md'
+jobs:
+  print-links-in-readme-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+
+      - name: Print links from './README.md' file
+        id: print-links-root-readme
+        uses: ./.github/actions/print-links
+        with:
+          file-path: './README.md'
+
+      - name: Print the number of found links in './README.md'
+        run: echo "Number of found links = ${{ steps.print-links-root-readme.outputs.number }}"
+
+      - name: Print links from '.github/actions/print-links/README.md' file
+        id: print-links-action-readme
+        uses: ./.github/actions/print-links
+        with:
+          file-path: '.github/actions/print-links/README.md'

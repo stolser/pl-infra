@@ -28,7 +28,7 @@ into the project and save it in the package.json:
    git submodule add https://github.com/bats-core/bats-file.git bash/test/bats_helper/bats-file
    ```
 
-Run Bats tests from the project root:
+Run Bats tests from the root:
 ```
 bats bash/test/test.bats
 ```
