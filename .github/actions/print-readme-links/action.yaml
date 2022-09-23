@@ -1,0 +1,13 @@
+name: 'Print links from README.md'
+description: 'Prints all existing links from the README.md file in the root'
+inputs:
+  title:
+    description: 'A title printed before a list of links'
+    required: false
+    default: '=== Links from the root README.md ==='
+outputs:
+  number:
+    description: 'Number of found and printed links'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
