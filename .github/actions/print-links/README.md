@@ -2,7 +2,7 @@
 
 Prints all existing links in provided file.
 
-## Generating dist
+## Generating folder 'dist'
 
 Install @vercel/ncc:
 ```
@@ -13,3 +13,4 @@ Before committing regenerate the ./dist/index.js file:
 cd .github/actions/print-links
 ncc build index.js
 ```
+
