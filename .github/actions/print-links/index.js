@@ -4,6 +4,22 @@ const fs = require('fs');
 const { readdir } = require('fs/promises');
 const path = require('path');
 
+const findByExtension = async (dir, ext) => {
+    const matchedFiles = [];
+    const allFilesInDir = await readdir(dir);
+
+    for (const file of allFilesInDir) {
+        const fileExt = path.extname(file);
+
+        if (fileExt === `.${ext}`) {
+            matchedFiles.push(file);
+        }
+    }
+
+    return matchedFiles;
+};
+
+
 try {
     // get input params defined in action.yaml
     let dirPath = core.getInput('dir-path');
@@ -41,18 +57,3 @@ try {
 } catch (error) {
     core.setFailed(error.message);
 }
-
-const findByExtension = async (dir, ext) => {
-    const matchedFiles = [];
-    const allFilesInDir = await readdir(dir);
-
-    for (const file of allFilesInDir) {
-        const fileExt = path.extname(file);
-
-        if (fileExt === `.${ext}`) {
-            matchedFiles.push(file);
-        }
-    }
-
-    return matchedFiles;
-};
