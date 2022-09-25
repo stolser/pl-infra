@@ -13,3 +13,4 @@ Before committing regenerate the ./dist/index.js file:
 cd .github/actions/print-links
 ncc build index.js
 ```
+
