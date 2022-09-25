@@ -9676,7 +9676,7 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(7649)
 const github = __nccwpck_require__(4330)
 const fs = __nccwpck_require__(7147);
-const { readdir } = __nccwpck_require__(3292);
+const {readdir} = __nccwpck_require__(3292);
 const path = __nccwpck_require__(1017);
 
 const findByExtension = async (dir, ext) => {
@@ -9700,30 +9700,31 @@ try {
     let dirPath = core.getInput('dir-path');
     let fileExt = core.getInput('file-ext');
 
-    let matchedFiles = findByExtension(dirPath, fileExt);
-    let totalNumberOfLinks = 0;
+    findByExtension(dirPath, fileExt)
+        .then((matchedFiles) => {
+            let totalNumberOfLinks = 0;
 
-    console.log(`matchedFiles = ${matchedFiles}`)
+            console.log(`matchedFiles = ${matchedFiles}`);
 
-    // for (const file of matchedFiles) {
-    //     const allContents = fs.readFileSync(file, 'utf-8');
-    //
-    //     console.log(`=== Links found in file '${file}' ===`);
-    //
-    //     let numberOfLinks = 0;
-    //     let currentLineNumber = 1;
-    //     allContents.split(/\r?\n/).forEach((line) => {
-    //         if (line.includes("http://") || line.includes("https://")){
-    //             numberOfLinks++;
-    //             console.log(`line ${currentLineNumber}: `, line);
-    //         }
-    //         currentLineNumber++;
-    //     });
-    //     console.log(`Total number of links in '${file}': `, numberOfLinks);
-    // }
+            // for (const file of matchedFiles) {
+            //     const allContents = fs.readFileSync(file, 'utf-8');
+            //
+            //     console.log(`=== Links found in file '${file}' ===`);
+            //
+            //     let numberOfLinks = 0;
+            //     let currentLineNumber = 1;
+            //     allContents.split(/\r?\n/).forEach((line) => {
+            //         if (line.includes("http://") || line.includes("https://")){
+            //             numberOfLinks++;
+            //             console.log(`line ${currentLineNumber}: `, line);
+            //         }
+            //         currentLineNumber++;
+            //     });
+            //     console.log(`Total number of links in '${file}': `, numberOfLinks);
+            // }
 
-    core.setOutput("total-number", totalNumberOfLinks);
-
+            core.setOutput("total-number", totalNumberOfLinks);
+        });
 
     // Get the JSON webhook payload for the event that triggered the workflow
     // const payload = JSON.stringify(github.context.payload, undefined, 2)
