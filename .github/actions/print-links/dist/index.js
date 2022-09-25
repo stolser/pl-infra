@@ -9679,6 +9679,22 @@ const fs = __nccwpck_require__(7147);
 const { readdir } = __nccwpck_require__(3292);
 const path = __nccwpck_require__(1017);
 
+const findByExtension = async (dir, ext) => {
+    const matchedFiles = [];
+    const allFilesInDir = await readdir(dir);
+
+    for (const file of allFilesInDir) {
+        const fileExt = path.extname(file);
+
+        if (fileExt === `.${ext}`) {
+            matchedFiles.push(file);
+        }
+    }
+
+    return matchedFiles;
+};
+
+
 try {
     // get input params defined in action.yaml
     let dirPath = core.getInput('dir-path');
@@ -9716,21 +9732,6 @@ try {
 } catch (error) {
     core.setFailed(error.message);
 }
-
-const findByExtension = async (dir, ext) => {
-    const matchedFiles = [];
-    const allFilesInDir = await readdir(dir);
-
-    for (const file of allFilesInDir) {
-        const fileExt = path.extname(file);
-
-        if (fileExt === `.${ext}`) {
-            matchedFiles.push(file);
-        }
-    }
-
-    return matchedFiles;
-};
 
 })();
 
