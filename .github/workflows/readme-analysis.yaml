@@ -1,22 +1,22 @@
-name: Run analysis of *.md files
+name: Run analysis of *.json files
 on:
   workflow_dispatch:
   push:
     paths:
-      - '**/*.md'
+      - '**/*.json'
 jobs:
-  print-links-in-md-files:
+  print-links-in-json-files:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v3
 
-      - name: Print links from *.md files
-        id: print-links-md
+      - name: Print links from *.json files
+        id: print-links-json
         uses: ./.github/actions/print-links
         with:
           dir-path: './'
-          file-ext: 'md'
+          file-ext: 'json'
 
       - name: Print the total number of found links
-        run: echo "Total number of found links = ${{ steps.print-links-md.outputs.total-number }}"
+        run: echo "Total number of found links = ${{ steps.print-links-json.outputs.total-number }}"
