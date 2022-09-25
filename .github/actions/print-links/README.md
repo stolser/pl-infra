@@ -2,7 +2,7 @@
 
 Prints all existing links in provided file.
 
-## Generating dist
+## Generating folder 'dist'
 
 Install @vercel/ncc:
 ```
