@@ -9708,22 +9708,25 @@ try {
 
             console.log(`matchedFiles = ${matchedFiles}`);
 
-            // for (const file of matchedFiles) {
-            //     const allContents = fs.readFileSync(file, 'utf-8');
-            //
-            //     console.log(`=== Links found in file '${file}' ===`);
-            //
-            //     let numberOfLinks = 0;
-            //     let currentLineNumber = 1;
-            //     allContents.split(/\r?\n/).forEach((line) => {
-            //         if (line.includes("http://") || line.includes("https://")){
-            //             numberOfLinks++;
-            //             console.log(`line ${currentLineNumber}: `, line);
-            //         }
-            //         currentLineNumber++;
-            //     });
-            //     console.log(`Total number of links in '${file}': `, numberOfLinks);
-            // }
+            for (const file of matchedFiles) {
+                const allContents = fs.readFileSync(file, 'utf-8');
+
+                console.log(`=== Links found in file '${file}' ===`);
+
+                let numberOfLinks = 0;
+                let currentLineNumber = 1;
+                allContents.split(/\r?\n/).forEach((line) => {
+                    if (line.includes("http://") || line.includes("https://")){
+                        numberOfLinks++;
+                        if (numberOfLinks <= 10) {
+                            console.log(`line ${currentLineNumber}: `, line);
+                        }
+                    }
+                    currentLineNumber++;
+                });
+                totalNumberOfLinks = totalNumberOfLinks + numberOfLinks;
+                console.log(`Total number of links in '${file}': `, numberOfLinks);
+            }
 
             core.setOutput("total-number", totalNumberOfLinks);
         });

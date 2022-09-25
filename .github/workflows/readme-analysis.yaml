@@ -20,9 +20,3 @@ jobs:
 
       - name: Print the total number of found links
         run: echo "Total number of found links = ${{ steps.print-links-md.outputs.total-number }}"
-
-#      - name: Print links from '.github/actions/print-links/README.md' file
-#        id: print-links-action-readme
-#        uses: ./.github/actions/print-links
-#        with:
-#          file-path: '.github/actions/print-links/README.md'
