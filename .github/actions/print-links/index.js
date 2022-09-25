@@ -8,6 +8,8 @@ const findByExtension = async (dir, ext) => {
     const matchedFiles = [];
     const allFilesInDir = await readdir(dir);
 
+    console.log(`allFilesInDir = ${allFilesInDir}`)
+
     for (const file of allFilesInDir) {
         const fileExt = path.extname(file);
 
