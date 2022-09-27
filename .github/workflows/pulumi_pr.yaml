@@ -3,10 +3,15 @@ on:
   - pull_request
 jobs:
   preview:
+    # Add "id-token" with the intended permissions:
+    permissions:
+      contents: read
+      id-token: write
     name: Preview
     runs-on: ubuntu-latest
     environment: dev
     timeout-minutes: 20
+
     steps:
       - uses: actions/checkout@v3
 
