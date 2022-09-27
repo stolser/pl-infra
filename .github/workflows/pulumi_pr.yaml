@@ -32,10 +32,10 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-#      - run: npm install
-#      - uses: pulumi/actions@v3
-#        with:
-#          command: preview
-#          stack-name: dev
-#        env:
-#          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+      - run: npm install
+      - uses: pulumi/actions@v3
+        with:
+          command: preview
+          stack-name: dev
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
