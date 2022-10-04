@@ -5,8 +5,8 @@ jobs:
   preview:
     # Add "id-token" with the intended permissions:
     permissions:
-      contents: read
-      id-token: write
+      id-token: write # This is required for requesting the JWT
+      contents: read  # This is required for actions/checkout
     name: Preview
     runs-on: ubuntu-latest
     environment: dev
