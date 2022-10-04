@@ -1,0 +1,43 @@
+name: Run Pulumi 'up' on merging PRs to master
+on:
+  push:
+    branches:
+      - master
+jobs:
+  provision:
+    # Add "id-token" with the intended permissions:
+    permissions:
+      contents: read
+      id-token: write
+    name: Provision resources
+    runs-on: ubuntu-latest
+    environment: dev
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: 'google-github-actions/auth@v0'
+        with:
+          workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER_ID }}
+          service_account: ${{ secrets.GCP_SERVICE_ACCOUNT }}
+
+      - name: Set up Cloud SDK
+        uses: 'google-github-actions/setup-gcloud@v0'
+
+      - name: Use gcloud CLI
+        run: gcloud info
+
+      - run: npm install
+      - uses: pulumi/actions@v3
+        with:
+          command: up
+          stack-name: dev
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
