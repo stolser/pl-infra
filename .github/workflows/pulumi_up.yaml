@@ -1,13 +1,15 @@
-name: Run Pulumi 'preview' on PR events
+name: Run Pulumi 'up' on merging PRs to master
 on:
-  - pull_request
+  push:
+    branches:
+      - master
 jobs:
-  preview:
+  provision:
     # Add "id-token" with the intended permissions:
     permissions:
       contents: read
       id-token: write
-    name: Preview
+    name: Provision resources
     runs-on: ubuntu-latest
     environment: dev
     timeout-minutes: 20
@@ -35,7 +37,7 @@ jobs:
       - run: npm install
       - uses: pulumi/actions@v3
         with:
-          command: preview
+          command: up
           stack-name: dev
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}

@@ -8,11 +8,7 @@ const bucketArgs = {
     location: "EU",
     storageClass: "STANDARD"
 }
-const bucket = new gcp.storage.Bucket("test-bucket-gk7l", bucketArgs);
-console.log("A new bucket is created:")
-console.log(`bucket.id = '${bucket.id}'`)
-console.log(`bucket.selfLink = '${bucket.selfLink}'`)
-console.log(`bucket.url = '${bucket.url}'`)
+const bucket = new gcp.storage.Bucket("test-bucket", bucketArgs);
 
 // Export the base URL of the bucket, in the format gs://<bucket-name>
 export const bucketName = bucket.url;
