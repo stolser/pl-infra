@@ -1,4 +1,4 @@
-# IaC with Pulumi and TypeScript
+# IaC with Pulumi (TypeScript)
 
 ## Pulumi docs
 
