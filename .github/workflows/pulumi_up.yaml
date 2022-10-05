@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'infra/**'
 jobs:
   provision:
     # Add "id-token" with the intended permissions:
