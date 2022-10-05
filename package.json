@@ -6,7 +6,7 @@
         "bats": "^1.8.0"
     },
     "dependencies": {
-        "@actions/core": "^1.9.1",
+        "@actions/core": "^1.10.0",
         "@actions/github": "^5.1.1",
         "@pulumi/pulumi": "^3.40.1"
     }
