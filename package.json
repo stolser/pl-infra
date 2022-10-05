@@ -1,7 +1,7 @@
 {
     "name": "pl-infra",
     "devDependencies": {
-        "@pulumi/gcp": "^6.38.0",
+        "@pulumi/gcp": "^6.39.0",
         "@types/node": "^18",
         "bats": "^1.8.0"
     },
