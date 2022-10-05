@@ -1,6 +1,8 @@
 name: Run Pulumi 'preview' on PR events
 on:
-  - pull_request
+  pull_request:
+    paths:
+      - 'infra/**'
 jobs:
   preview:
     # Add "id-token" with the intended permissions:
