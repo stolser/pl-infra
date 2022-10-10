@@ -44,3 +44,4 @@ jobs:
           work-dir: infra
         env:
           PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ENV_GITHUB_TOKEN }}
