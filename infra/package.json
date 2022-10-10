@@ -1,5 +1,5 @@
 {
   "name": "pl-infra",
   "version": "1.0.0",
-  "main": "infra/main.ts"
+  "main": "main.ts"
 }
