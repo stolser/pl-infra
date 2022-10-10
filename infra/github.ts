@@ -2,6 +2,7 @@ import * as github from "@pulumi/github";
 
 export function createGitHubRepos() {
     const githubActionsRepo = new github.Repository("github-actions", {
+        name: "github-actions",
         description: "Monorepo for custom GitHub Actions",
         visibility: "public",
         topics: ["monorepo", "github-actions"],
