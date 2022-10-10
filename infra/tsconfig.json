@@ -13,7 +13,7 @@
         "forceConsistentCasingInFileNames": true
     },
     "files": [
-        "index.ts",
+        "main.ts",
         "github.ts"
     ]
 }

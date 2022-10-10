@@ -3,6 +3,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as gcp from "@pulumi/gcp";
 
+import { createGitHubRepos } from "./github"
+
 // Create a GCS bucket
 const bucketArgs = {
     location: "EU",
@@ -33,3 +35,5 @@ const exampleSubscription = new gcp.pubsub.Subscription("pulumi-test-sub-push", 
         },
     },
 });
+
+createGitHubRepos();
