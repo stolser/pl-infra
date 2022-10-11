@@ -1,4 +1,7 @@
 import * as github from "@pulumi/github";
+import {BranchDefault, BranchProtection} from "@pulumi/github";
+
+let mainBranchName = "master";
 
 export function createGitHubRepos() {
     const githubActionsRepo = new github.Repository("github-actions", {
@@ -11,4 +14,18 @@ export function createGitHubRepos() {
         allowMergeCommit: false,
         allowAutoMerge: false
     });
+
+    new BranchDefault("ga-repo-default-branch", {
+        branch: mainBranchName,
+        repository: githubActionsRepo.name
+    });
+
+    new BranchProtection("ga-repo-branch-protection", {
+        pattern: mainBranchName,
+        repositoryId: githubActionsRepo.name,
+        allowsForcePushes: false,
+        enforceAdmins: true,
+        requireConversationResolution: true,
+        requireSignedCommits: true
+    })
 }
