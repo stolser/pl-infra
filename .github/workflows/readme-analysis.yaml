@@ -13,7 +13,7 @@ jobs:
 
       - name: Print links from *.json files
         id: print-links-json
-        uses: ./.github/actions/print-links
+        uses: stolser/github-actions/print-links
         with:
           dir-path: './'
           file-ext: 'json'
