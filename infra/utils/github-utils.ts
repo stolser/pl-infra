@@ -38,6 +38,7 @@ export function createBranchProtection(resourceName: string,
         allowsForcePushes: false,
         enforceAdmins: true,
         requireConversationResolution: true,
-        requireSignedCommits: true
+        requireSignedCommits: true,
+        requiredLinearHistory: true
     })
 }
