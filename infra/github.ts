@@ -42,7 +42,7 @@ export function createGitHubRepos() {
         requireSignedCommits: true
     })
 
-    const graphQLRepo = newPublicRepository(
+    const graphQlRepo = newPublicRepository(
         "graphql-book-list",
         "A simple web app built with Node.js, GraphQL, Express, MongoDB, React, and Apollo",
         ["node", "graphql", "express", "mongodb", "react", "apollo"]
