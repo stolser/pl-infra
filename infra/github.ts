@@ -8,7 +8,7 @@ export function createGitHubRepos() {
         name: "github-actions",
         description: "Monorepo for custom GitHub Actions",
         visibility: "public",
-        topics: ["monorepo", "github-actions"],
+        topics: ["node", "monorepo", "github-actions"],
         allowSquashMerge: true,
         allowRebaseMerge: false,
         allowMergeCommit: false,
@@ -28,4 +28,15 @@ export function createGitHubRepos() {
         requireConversationResolution: true,
         requireSignedCommits: true
     })
+
+    const graphQLRepo = new github.Repository("graphql-book-list", {
+        name: "graphql-book-list",
+        description: "A simple web app built with Node.js, GraphQL, Express, MongoDB, React, and Apollo",
+        visibility: "public",
+        topics: ["node", "graphql", "express", "mongodb", "react", "apollo"],
+        allowSquashMerge: true,
+        allowRebaseMerge: false,
+        allowMergeCommit: false,
+        allowAutoMerge: false
+    });
 }
