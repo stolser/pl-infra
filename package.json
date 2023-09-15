@@ -1,6 +1,6 @@
 {
     "devDependencies": {
-        "@pulumi/gcp": "^6.50.0",
+        "@pulumi/gcp": "^6.65.1",
         "@pulumi/github": "^5.0.0",
         "@types/node": "^18",
         "bats": "^1.8.0"
